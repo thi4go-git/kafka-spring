@@ -49,6 +49,7 @@
             <scope>test</scope>
         </dependency>
 
+
         <!--
         Essa dependência foi criada no projeto lib-commons
          nessa lib serão disponibilizados os DTO´s em comum para toda a aplicação

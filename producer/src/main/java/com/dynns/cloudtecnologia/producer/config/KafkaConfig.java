@@ -47,7 +47,7 @@ public class KafkaConfig {
      * @return
      */
     @Bean
-    private ProducerFactory producerFactory() {
+    public ProducerFactory producerFactory() {
         var configs = new HashMap<String, Object>();
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaProperties.getBootstrapServers());
         //Essa configuração do Bootstrapservers vem do application.yml conforme essa configuração
