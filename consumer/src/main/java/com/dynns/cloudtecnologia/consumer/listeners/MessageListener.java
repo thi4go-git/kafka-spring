@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class MessageListener {
     @KafkaListener(
             topics = "topico-1",//escuta o tópico 1
-            groupId = "message-one",//cria e escuta o consumer group message-one caso n exista
+            groupId = "message-one",//cria se ñ existir e escuta o consumer group message-one
             containerFactory = "containerFactory" //nome do container(método) criado na config
     )
     public void messageOneListener1(@Payload MessageDTO messageDTO) {
@@ -20,7 +20,7 @@ public class MessageListener {
 
     @KafkaListener(
             topics = "topico-1",//escuta o tópico 1
-            groupId = "message-one",//cria e escuta o consumer group message-one caso n exista
+            groupId = "message-one",//cria se ñ existir e escuta o consumer group message-one
             containerFactory = "containerFactory" //nome do container(método) criado na config
     )
     public void messageOneListener2(@Payload MessageDTO messageDTO) {

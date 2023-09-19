@@ -18,17 +18,16 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public void createEvent(MessageDTO messageDTO) {
         MessageDTO mensagemKafka = new MessageDTO(messageDTO.getStatus(), messageDTO.getDescricao(), messageDTO.getTopico());
-        log.info("Enviando para o KAFKA... Payload: " + mensagemKafka.toString());
         kafkaTemplate.send(mensagemKafka.getTopico(), messageDTO)
-                .whenComplete(getResultSendMessage());
+                .whenComplete(getResultSendMessage(messageDTO));
     }
 
-    private static BiConsumer<SendResult<String, Object>, Throwable> getResultSendMessage() {
+    private static BiConsumer<SendResult<String, Object>, Throwable> getResultSendMessage(MessageDTO messageDTO) {
         return (success, ex) -> {
             if (ex != null) {
-                log.error("::: Erro ao enviar Mensagem KAFKA :::");
+                log.error("::: Erro ao enviar Mensagem KAFKA ::: " + messageDTO.toString());
             } else {
-                log.info("::: Sucesso ao enviar Mensagem KAFKA :::");
+                log.info("::: Sucesso ao enviar Mensagem KAFKA ::: " + messageDTO.toString());
             }
         };
     }

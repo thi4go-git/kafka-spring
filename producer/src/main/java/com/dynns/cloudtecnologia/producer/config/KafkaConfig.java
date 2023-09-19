@@ -35,8 +35,7 @@ public class KafkaConfig {
         //Criando tópicos e partições
         return new KafkaAdmin.NewTopics(
                 TopicBuilder.name("topico-1").partitions(2).build(),
-                TopicBuilder.name("topico-2").partitions(2).build(),
-                TopicBuilder.name("topico-3").partitions(2).build()
+                TopicBuilder.name("topico-2").partitions(2).build()
         );
     }
 

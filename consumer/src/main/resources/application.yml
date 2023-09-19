@@ -4,4 +4,4 @@ spring:
   application:
     name: 'Consumer KAFKA'
   kafka:
-    bootstrap-servers: 'localhost:9092'
+    bootstrap-servers: 'cloudtecnologia.dynns.com:9092'
