@@ -18,7 +18,7 @@ public class MessageDTO implements Serializable {
     private String topico;
 
     public MessageDTO(String descricao, String status, String topico) {
-        //Gera id aleatório com 5 posições.
+        //Gera id aleatório com 5 posições..
         Random random = new Random();
         int idAleatorio = random.nextInt(90000) + 10000;
         this.id = idAleatorio;
