@@ -16,7 +16,7 @@ public class MessageServiceImpl implements MessageService {
     private KafkaTemplate<String, Object> kafkaTemplate;
 
     @Override
-    public void createEvent(MessageDTO messageDTO) {
+    public void createEvent(MessageDTO messageDTO){
         MessageDTO mensagemKafka = new MessageDTO(messageDTO.getStatus(), messageDTO.getDescricao(), messageDTO.getTopico());
         kafkaTemplate.send(mensagemKafka.getTopico(), messageDTO)
                 .whenComplete(getResultSendMessage(messageDTO));
